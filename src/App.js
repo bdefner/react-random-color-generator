@@ -1,4 +1,9 @@
+import currentColor from 'randomcolor';
+import { useState } from 'react';
+
 function App() {
+  const [randomColor, setRandomColor] = useState(currentColor.randomColor());
+  console.log(randomColor);
   return (
     <div
       style={{
@@ -13,7 +18,7 @@ function App() {
       <div
         style={{
           padding: '50px',
-          backgroundColor: '#ff6bb5',
+          backgroundColor: randomColor,
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'center',
