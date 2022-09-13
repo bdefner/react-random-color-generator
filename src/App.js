@@ -2,9 +2,16 @@ import currentColor from 'randomcolor';
 import { useState } from 'react';
 
 function App() {
+  const [hue, setHue] = useState('');
+  const [lightness, setLightness] = useState('');
   const [randomColor, setRandomColor] = useState(currentColor.randomColor());
+
   const backgroundGradient =
     'linear-gradient(145deg, rgba(251,63,229,1) 0%, rgba(70,124,252,1) 32%, rgba(93,252,70,1) 59%, rgba(252,248,70,1) 96%)';
+  const inputStyle = {
+    margin: '5px',
+    textAlign: 'center',
+  };
 
   return (
     <div
@@ -32,9 +39,28 @@ function App() {
       >
         Generated Color: {randomColor}
       </div>
+      <br />
+      <input
+        style={inputStyle}
+        placeholder="hue (optional)"
+        onChange={(event) => {
+          setHue(event.currentTarget.value);
+        }}
+      />
+      <input
+        style={inputStyle}
+        placeholder="lightness (optional)"
+        onChange={(event) => {
+          setLightness(event.currentTarget.value);
+        }}
+      />
       <button
         onClick={() => {
-          setRandomColor(currentColor.randomColor());
+          setRandomColor(
+            currentColor.randomColor({ hue: hue, luminosity: lightness }),
+          );
+          console.log('Hue:' + hue);
+          console.log('lightness:' + lightness);
         }}
       >
         Generate
