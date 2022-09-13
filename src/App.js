@@ -39,16 +39,7 @@ function App() {
           boxShadow: '5px 10px',
         }}
       >
-        <p
-          style={{
-            backgroundColor: 'rgba(255, 255, 255, 0.5)',
-            padding: '5px',
-            border: 'solid 0px',
-            borderRadius: '2px',
-          }}
-        >
-          Generated Color: {randomColor}
-        </p>
+        Generated Color: {randomColor}
       </div>
       <br />
       <input
